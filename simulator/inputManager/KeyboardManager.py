@@ -12,7 +12,7 @@ modified on:	June 12, 2014
 
 from direct.showbase import DirectObject
 import sys
-from MouseHandler import MouseHandler
+from .MouseHandler import MouseHandler
 from utils import Globals
 
 class KeyboardManager(DirectObject.DirectObject):
@@ -37,15 +37,15 @@ class KeyboardManager(DirectObject.DirectObject):
 		self.accept("mouse1", self.pressedM1)
 
 	def pressedEscape(self):
-		print "exiting..."
+		print("exiting...")
 		sys.exit(0)
 
 	def pressedR(self):
-		print "resetting scene..."
+		print("resetting scene...")
 		self.resetScene()
 
 	def pressedO(self):
-		print "oobe toggled"
+		print("oobe toggled")
 		self.pandaScene.oobe()
 
 	def pressedM(self):
@@ -90,11 +90,11 @@ class KeyboardManager(DirectObject.DirectObject):
 
 	def pressed1(self):
 		if self.selectionEnabled:
-			print "Selection Mode Off"
+			print("Selection Mode Off")
 			base.enableMouse()
 			self.selectionEnabled = False
 		else:
-			print "Selection Mode On"
+			print("Selection Mode On")
 			base.disableMouse()
 			self.selectionEnabled = True
 
@@ -108,8 +108,8 @@ class KeyboardManager(DirectObject.DirectObject):
 					self.previousSelection.reparentTo(self.pandaScene.mainNode)
 				self.currentSelection.reparentTo(self.pandaScene.selectedNode)
 				self.previousSelection = self.currentSelection
-				Globals.prevSelection = Globals.selection
-				Globals.selection = int(self.selectedObjectId)
+				Globals.prevSelection = Globals.selectedModelIndex
+				Globals.selectedModelIndex = int(self.selectedObjectId)
 
 			if self.worldMapEnabled:
 				if(self.pandaScene.worldMapMouse.hasMouse()):
@@ -122,13 +122,13 @@ class KeyboardManager(DirectObject.DirectObject):
 							self.previousSelection.reparentTo(self.pandaScene.mainNode)
 						self.currentSelection.reparentTo(self.pandaScene.selectedNode)
 						self.previousSelection = self.currentSelection
-						Globals.prevSelection = Globals.selection
-						Globals.selection = int(self.selectedObjectId)
+						Globals.prevSelection = Globals.selectedModelIndex
+						Globals.selectedModelIndex = int(self.selectedObjectId)
 
 	def resetScene(self):
-		Globals.modelList = []
-		Globals.count = -1
-		Globals.selection = -1
+		Globals.modelsList = []
+		Globals.modelsCount = -1
+		Globals.selectedModelIndex = -1
 		Globals.PrevSelection = -1
 		self.pandaScene.mainNode.removeNode()
 		self.pandaScene.selectedNode.removeNode()

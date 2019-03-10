@@ -10,7 +10,7 @@ modified on:	June 29, 2014
 #########################################################################
 
 from direct.showbase.DirectObject import DirectObject
-from pandac.PandaModules import *
+from panda3d.core import *
 
 class ModelNode(DirectObject):
 	def __init__(self,pandaScene):
@@ -73,10 +73,11 @@ class ModelNode(DirectObject):
 		self.pandaFile = Filename.fromOsSpecific(self.modelName)
 		self.model = loader.loadModel(self.pandaFile)
 		self.model.reparentTo(self.pandaScene.getMainNode())
-		self.model.setPos(0,0,-20)
+		# self.model.setPos(0,0,-20)
+		self.model.setPos(0,0,0)
 		self.pandaScene.mainNode.setShader(self.pandaScene.UWMShader)
 		self.model.setShaderInput("camPos",base.camera.getX() ,base.camera.getY() ,base.camera.getZ() ,1.0)
 		self.id = str(modelNumber)
 		self.model.setTag("id",self.id)
 		self.model.setTag("selectable","1")
-		print "Model Added Successfully with id = ",self.model.getTag("id")
+		print('Model added: id {}, name "{}"'.format(self.model.getTag("id"), self.modelName))

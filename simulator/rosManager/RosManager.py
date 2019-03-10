@@ -11,10 +11,10 @@ modified on:	August 16, 2014
 
 from subprocess import *
 from direct.showbase.ShowBase import ShowBase
-from pandac.PandaModules import *
+from panda3d.core import *
 import os
-import cv
-import cv2
+# import cv
+# import cv2
 import numpy as np
 from direct.task import Task
 
@@ -25,9 +25,7 @@ class RosManager(object):
 		call(self.init_roscore_path, shell=True)
 		# taskMgr.add(self.ImagePublisher, 'ImagePublisher')
 		taskMgr.doMethodLater(0.300, self.ImagePublisher, 'ImagePublisher')
-        # cv2.namedWindow("1", 0)
-        
-
+		# cv2.namedWindow("1", 0)
 		
 	def ImagePublisher(self,task):
 
@@ -54,9 +52,9 @@ class RosManager(object):
 		# print blank_image
 
 		# count =0 
-		# for x in xrange(0,height):
-		# 	for y in xrange(0,width):
-		# 		for z in xrange(0,3):
+		# for x in range(0,height):
+		# 	for y in range(0,width):
+		# 		for z in range(0,3):
 		# 			blank_image[x][y][z] = (tex.getRamImage())[count]
 		# 			count+=1
 
@@ -68,4 +66,3 @@ class RosManager(object):
 		# return task.cont
 		# task.delayTime += 1
 		return task.again
-

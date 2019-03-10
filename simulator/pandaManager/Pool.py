@@ -9,7 +9,7 @@ modified on:	June 29, 2014
 
 #########################################################################
 
-from pandac.PandaModules import *
+from panda3d.core import *
 from panda3d.core import *
 from direct.task import Task
 
@@ -31,8 +31,8 @@ class Pool(object):
 		color = GeomVertexWriter(gridPlane, 'color')
 		texcoord = GeomVertexWriter(gridPlane, 'texcoord')
 
-		for y in xrange(0,GRID_SIZE+1):
-			for x in xrange(0,GRID_SIZE+1):
+		for y in range(0,GRID_SIZE+1):
+			for x in range(0,GRID_SIZE+1):
 				vertex.addData3f((x-GRID_SIZE/2.0)*X_SEPARATION, (y-GRID_SIZE/2.0)*Y_SEPARATION, 0)
 				if x%2==0 and y%2==0:
 					texcoord.addData2f(0,0)
@@ -46,8 +46,8 @@ class Pool(object):
 		prim = GeomTriangles(Geom.UHStatic)
 
 		# create indices for drawing vertices using triangle self.pandaScene.primitive
-		for x in xrange(0,GRID_SIZE):
-			for start in xrange((GRID_SIZE*x)+x+1,(GRID_SIZE*x)+x+1+GRID_SIZE):
+		for x in range(0,GRID_SIZE):
+			for start in range((GRID_SIZE*x)+x+1,(GRID_SIZE*x)+x+1+GRID_SIZE):
 				prim.addVertices(start, start+GRID_SIZE, start-1)
 				prim.addVertices(start, start+GRID_SIZE+1, start+GRID_SIZE)
 
@@ -68,8 +68,8 @@ class Pool(object):
 		color = GeomVertexWriter(gridPlane, 'color')
 		texcoord = GeomVertexWriter(gridPlane, 'texcoord')
 
-		for y in xrange(0,GRID_SIZE+1):
-			for x in xrange(0,GRID_SIZE+1):
+		for y in range(0,GRID_SIZE+1):
+			for x in range(0,GRID_SIZE+1):
 				vertex.addData3f((x-GRID_SIZE/2.0)*X_SEPARATION, GRID_SIZE/2.0*Y_SEPARATION, Z_SEPARATION*((y-GRID_SIZE/2.0)-(GRID_SIZE/2-GRID_SIZE/10)))
 				if x%2==0 and y%2==0:
 					texcoord.addData2f(0,0)
@@ -91,8 +91,8 @@ class Pool(object):
 		# prim = GeomTriangles(Geom.UHStatic)
 
 		# create indices for drawing vertices using triangle primitive
-		for x in xrange(0,GRID_SIZE):
-			for start in xrange((GRID_SIZE*x)+x+1,(GRID_SIZE*x)+x+1+GRID_SIZE):
+		for x in range(0,GRID_SIZE):
+			for start in range((GRID_SIZE*x)+x+1,(GRID_SIZE*x)+x+1+GRID_SIZE):
 				prim.addVertices(start, start+GRID_SIZE, start-1)
 				prim.addVertices(start, start+GRID_SIZE+1, start+GRID_SIZE)
 
@@ -111,8 +111,8 @@ class Pool(object):
 		color = GeomVertexWriter(gridPlane, 'color')
 		texcoord = GeomVertexWriter(gridPlane, 'texcoord')
 
-		for y in xrange(0,GRID_SIZE+1):
-			for x in xrange(0,GRID_SIZE+1):
+		for y in range(0,GRID_SIZE+1):
+			for x in range(0,GRID_SIZE+1):
 				vertex.addData3f((x-GRID_SIZE/2.0)*X_SEPARATION, -GRID_SIZE/2.0*Y_SEPARATION, Z_SEPARATION*((y-GRID_SIZE/2.0)-(GRID_SIZE/2-GRID_SIZE/10)))
 				if x%2==0 and y%2==0:
 					texcoord.addData2f(0,0)
@@ -134,8 +134,8 @@ class Pool(object):
 		prim = GeomTriangles(Geom.UHStatic)
 
 		# create indices for drawing vertices using triangle primitive
-		for x in xrange(0,GRID_SIZE):
-			for start in xrange((GRID_SIZE*x)+x+1,(GRID_SIZE*x)+x+1+GRID_SIZE):
+		for x in range(0,GRID_SIZE):
+			for start in range((GRID_SIZE*x)+x+1,(GRID_SIZE*x)+x+1+GRID_SIZE):
 				prim.addVertices(start, start-1, start+GRID_SIZE)
 				prim.addVertices(start, start+GRID_SIZE, start+GRID_SIZE+1)
 
@@ -153,8 +153,8 @@ class Pool(object):
 		color = GeomVertexWriter(gridPlane, 'color')
 		texcoord = GeomVertexWriter(gridPlane, 'texcoord')
 
-		for y in xrange(0,GRID_SIZE+1):
-			for x in xrange(0,GRID_SIZE+1):
+		for y in range(0,GRID_SIZE+1):
+			for x in range(0,GRID_SIZE+1):
 				vertex.addData3f(X_SEPARATION*(-GRID_SIZE/2.0), (x-GRID_SIZE/2.0)*Y_SEPARATION, Z_SEPARATION*((y-GRID_SIZE/2.0)-(GRID_SIZE/2-GRID_SIZE/10)))
 				if x%2==0 and y%2==0:
 					texcoord.addData2f(0,0)
@@ -177,8 +177,8 @@ class Pool(object):
 		prim = GeomTriangles(Geom.UHStatic)
 
 		# create indices for drawing vertices using triangle primitive
-		for x in xrange(0,GRID_SIZE):
-			for start in xrange((GRID_SIZE*x)+x+1,(GRID_SIZE*x)+x+1+GRID_SIZE):
+		for x in range(0,GRID_SIZE):
+			for start in range((GRID_SIZE*x)+x+1,(GRID_SIZE*x)+x+1+GRID_SIZE):
 				prim.addVertices(start, start+GRID_SIZE, start-1)
 				prim.addVertices(start, start+GRID_SIZE+1, start+GRID_SIZE)
 
@@ -196,8 +196,8 @@ class Pool(object):
 		color = GeomVertexWriter(gridPlane, 'color')
 		texcoord = GeomVertexWriter(gridPlane, 'texcoord')
 
-		for y in xrange(0,GRID_SIZE+1):
-			for x in xrange(0,GRID_SIZE+1):
+		for y in range(0,GRID_SIZE+1):
+			for x in range(0,GRID_SIZE+1):
 				vertex.addData3f(X_SEPARATION*GRID_SIZE/2.0, (x-GRID_SIZE/2.0)*Y_SEPARATION, Z_SEPARATION*((y-GRID_SIZE/2.0)-(GRID_SIZE/2-GRID_SIZE/10)))
 				if x%2==0 and y%2==0:
 					texcoord.addData2f(0,0)
@@ -220,8 +220,8 @@ class Pool(object):
 		prim = GeomTriangles(Geom.UHStatic)
 
 		# create indices for drawing vertices using triangle primitive
-		for x in xrange(0,GRID_SIZE):
-			for start in xrange((GRID_SIZE*x)+x+1,(GRID_SIZE*x)+x+1+GRID_SIZE):
+		for x in range(0,GRID_SIZE):
+			for start in range((GRID_SIZE*x)+x+1,(GRID_SIZE*x)+x+1+GRID_SIZE):
 				prim.addVertices(start, start-1, start+GRID_SIZE)
 				prim.addVertices(start, start+GRID_SIZE, start+GRID_SIZE+1)
 
@@ -239,8 +239,8 @@ class Pool(object):
 		color = GeomVertexWriter(gridPlane, 'color')
 		texcoord = GeomVertexWriter(gridPlane, 'texcoord')
 
-		for y in xrange(0,GRID_SIZE+1):
-			for x in xrange(0,GRID_SIZE+1):
+		for y in range(0,GRID_SIZE+1):
+			for x in range(0,GRID_SIZE+1):
 				vertex.addData3f((x-GRID_SIZE/2.0)*X_SEPARATION, (y-GRID_SIZE/2.0)*Y_SEPARATION,-(GRID_SIZE-GRID_SIZE/10)*Z_SEPARATION)
 				if x%2==0 and y%2==0:
 					texcoord.addData2f(0,0)
@@ -263,8 +263,8 @@ class Pool(object):
 		prim = GeomTriangles(Geom.UHStatic)
 
 		# create indices for drawing vertices using triangle self.pandaScene.primitive
-		for x in xrange(0,GRID_SIZE):
-			for start in xrange((GRID_SIZE*x)+x+1,(GRID_SIZE*x)+x+1+GRID_SIZE):
+		for x in range(0,GRID_SIZE):
+			for start in range((GRID_SIZE*x)+x+1,(GRID_SIZE*x)+x+1+GRID_SIZE):
 				prim.addVertices(start, start+GRID_SIZE, start-1)
 				prim.addVertices(start, start+GRID_SIZE+1, start+GRID_SIZE)
 

@@ -7,6 +7,6 @@ modified on:	May 26, 2014
 
 """
 
-from Connections import Connections
-from Gui import Gui
-from GuiThread import GuiThread
+from .Connections import Connections
+from .Gui import Gui
+from .GuiThread import GuiThread

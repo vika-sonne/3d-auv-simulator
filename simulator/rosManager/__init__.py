@@ -7,4 +7,4 @@ modified on:	August 16, 2014
 
 """
 
-from RosManager import RosManager
+from .RosManager import RosManager

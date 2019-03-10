@@ -7,5 +7,5 @@ modified on:	May 28, 2014
 
 """
 
-from KeyboardManager import KeyboardManager
-from MouseHandler import MouseHandler
+from .KeyboardManager import KeyboardManager
+from .MouseHandler import MouseHandler

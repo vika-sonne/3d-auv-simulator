@@ -22,7 +22,7 @@ class SaveScene(object):
 	def saveModels(self):
 		models = Element('models')
 
-		for modelItem in Globals.modelList:
+		for modelItem in Globals.modelsList:
 			model = SubElement(models, 'model')
 			filename = SubElement(model,'filename',value=modelItem.getFilename())
 			position = SubElement(model,'position',
@@ -39,4 +39,4 @@ class SaveScene(object):
 		tree.write(self.filename,
 			xml_declaration=True,encoding='utf-8',
 			method="xml")
-		print "File Saved"
+		print("File Saved")

@@ -7,4 +7,4 @@ modified on:	May 26, 2014
 
 """
 
-from EventManager import EventManager
+from .EventManager import EventManager

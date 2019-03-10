@@ -12,7 +12,7 @@ modified on:	May 26, 2014
 
 from guiManager import Gui
 from direct.stdpy import threading
-from PyQt4 import QtGui, QtCore
+from PyQt5 import QtWidgets, QtCore
 import sys
 from guiManager import Connections
 
@@ -23,7 +23,7 @@ class GuiThread(threading.Thread):
 		self.em = em
 
 	def run(self):
-		app = QtGui.QApplication(sys.argv)
+		app = QtWidgets.QApplication(sys.argv)
 		self.qt = Gui()
 		self.qt.show()
 		self.connnections = Connections(self.qt, self.q, self.em)

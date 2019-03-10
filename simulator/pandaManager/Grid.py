@@ -10,7 +10,7 @@ modified on:	June 29, 2014
 #########################################################################
 
 import sys
-from pandac.PandaModules import *
+from panda3d.core import *
 from panda3d.core import *
 from direct.task import Task
 
@@ -29,15 +29,15 @@ class Grid(object):
 		self.pandaScene.vertex = GeomVertexWriter(self.pandaScene.gridPlane, 'vertex')
 		self.pandaScene.color = GeomVertexWriter(self.pandaScene.gridPlane, 'color')
 
-		for y in xrange(0,GRID_SIZE+1):
-			for x in xrange(0,GRID_SIZE+1):
+		for y in range(0,GRID_SIZE+1):
+			for x in range(0,GRID_SIZE+1):
 				self.pandaScene.vertex.addData3f((x-GRID_SIZE/2.0)*X_SEPARATION, (y-GRID_SIZE/2.0)*Y_SEPARATION, 0)
 
 		self.pandaScene.prim = GeomTriangles(Geom.UHStatic)
 
 		# create indices for drawing vertices using triangle self.pandaScene.primitive
-		for x in xrange(0,GRID_SIZE):
-			for start in xrange((GRID_SIZE*x)+x+1,(GRID_SIZE*x)+x+1+GRID_SIZE):
+		for x in range(0,GRID_SIZE):
+			for start in range((GRID_SIZE*x)+x+1,(GRID_SIZE*x)+x+1+GRID_SIZE):
 				self.pandaScene.prim.addVertices(start, start+GRID_SIZE, start-1)
 				self.pandaScene.prim.addVertices(start, start+GRID_SIZE+1, start+GRID_SIZE)
 

@@ -11,11 +11,11 @@ modified on:	June 29, 2014
 
 
 from direct.showbase.ShowBase import ShowBase
-from pandac.PandaModules import *
-from pandac.PandaModules import loadPrcFileData
+from panda3d.core import *
+from panda3d.core import loadPrcFileData
 from panda3d.core import Filename
 from inputManager import KeyboardManager
-from Pool import Pool
+from .Pool import Pool
 from rosManager import RosManager
 
 # loadPrcFileData("", "undecorated 1")
@@ -54,7 +54,7 @@ class PandaScene(ShowBase):
 		# self.model.setPos(-8,42,0)
 		# self.camera.setPosHpr(0,0,2,0,0,0)
 		# base.enableMouse()
-		print "Simulator Initialized"
+		print("Simulator Initialized")
 		RosManager()
 
 	def getMainNode(self):
