@@ -5,10 +5,10 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Python: Current File (Integrated Terminal)",
+			"name": "Python: AI object browser window (Integrated Terminal)",
 			"type": "python",
 			"request": "launch",
-			"program": "${workspaceFolder}/simulator/main.py",
+			"program": "${workspaceFolder}/simulator/guiManager/AiObjectBrowser.py",
 			"console": "integratedTerminal",
 			"args": [
 				// "runserver",
@@ -16,5 +16,18 @@
 				// "--nothreading"
 			],
 		},
+		{
+			"name": "Python: simulator window (Integrated Terminal)",
+			"cwd": "${workspaceFolder}/simulator/guiManager",
+			"type": "python",
+			"request": "launch",
+			"program": "${workspaceFolder}/simulator/guiManager/Simulator.py",
+			"console": "integratedTerminal",
+			"args": [
+				// "runserver",
+				// "--noreload",
+				// "--nothreading"
+			],
+		}
 	]
 }

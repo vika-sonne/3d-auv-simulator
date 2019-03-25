@@ -3,9 +3,9 @@ from PyQt5 import QtCore
 class Settings:
 
 	@staticmethod
-	def init():
-		QtCore.QCoreApplication.setOrganizationName('Odyssey')
-		QtCore.QCoreApplication.setApplicationName('Simulator')
+	def init(organizationName='Odyssey', applicationName='Simulator'):
+		QtCore.QCoreApplication.setOrganizationName(organizationName)
+		QtCore.QCoreApplication.setApplicationName(applicationName)
 
 	@staticmethod
 	def fileName() -> str:
@@ -13,9 +13,10 @@ class Settings:
 		return QtCore.QSettings().fileName()
 
 	@staticmethod
-	def value(prefix: str, name: str) -> str:
+	def value(prefix: str, name: str, default=None) -> str:
 		settings = QtCore.QSettings()
-		return settings.value(prefix+'/'+name)
+		ret = settings.value(prefix+'/'+name)
+		return ret if ret is not None else default
 
 	@staticmethod
 	def setValue(prefix: str, name: str, value: str):
